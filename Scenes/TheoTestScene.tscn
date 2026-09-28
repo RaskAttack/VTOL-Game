@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://yp7anwciwpuk"]
 
 [ext_resource type="Script" uid="uid://bqbfpm13rwum2" path="res://Scripts/theo_test_scene.gd" id="1_dub46"]
-[ext_resource type="PackedScene" uid="uid://cm77pj0etr1t6" path="res://Assets/models/Hand.glb" id="2_dub46"]
+[ext_resource type="PackedScene" uid="uid://byhvc5o7mb4wv" path="res://Assets/models/Hand.glb" id="2_dub46"]
 [ext_resource type="Script" uid="uid://bwmhrfarxum6s" path="res://Scripts/Hands/right.gd" id="2_h0vfr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jq8ic"]
@@ -32,19 +32,18 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8876486, -0.14751542)
 
 [node name="XRController3D" type="XRController3D" parent="XROrigin3D" unique_id=1269263341]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.93535614, 0.99739146, -1.6865575)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 tracker = &"right_hand"
 script = ExtResource("2_h0vfr")
 
 [node name="Hand" parent="XROrigin3D/XRController3D" unique_id=1855547124 instance=ExtResource("2_dub46")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.094132185, 0.15132427, -0.1485138)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [node name="XRController3D2" type="XRController3D" parent="XROrigin3D" unique_id=733137955]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20574921, 0.997, -1.687)
 tracker = &"left_hand"
 
 [node name="Hand" parent="XROrigin3D/XRController3D2" unique_id=98323181 instance=ExtResource("2_dub46")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.88864833, -0.116080284, -0.010908842)
+transform = Transform3D(-0.2, 0, -1.7484556e-08, 0, 0.2, 0, 1.7484556e-08, 0, -0.2, 0, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=981289727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52142334, 0)
