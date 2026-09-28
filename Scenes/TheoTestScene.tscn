@@ -37,14 +37,14 @@ tracker = &"right_hand"
 script = ExtResource("2_h0vfr")
 
 [node name="Hand" parent="XROrigin3D/XRController3D" unique_id=1855547124 instance=ExtResource("2_dub46")]
-transform = Transform3D(-8.742278e-09, -0.2, 0, 0.2, -8.742278e-09, 0, 0, 0, 0.2, -0.094132185, 0.15132427, -0.1485138)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.094132185, 0.15132427, -0.1485138)
 
 [node name="XRController3D2" type="XRController3D" parent="XROrigin3D" unique_id=733137955]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20574921, 0.997, -1.687)
 tracker = &"left_hand"
 
 [node name="Hand" parent="XROrigin3D/XRController3D2" unique_id=98323181 instance=ExtResource("2_dub46")]
-transform = Transform3D(8.742278e-09, 0.2, 1.7484556e-08, 0.2, -8.742278e-09, 0, 7.642742e-16, 1.7484556e-08, -0.2, -0.88864833, -0.116080284, -0.010908842)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.88864833, -0.116080284, -0.010908842)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=981289727]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52142334, 0)

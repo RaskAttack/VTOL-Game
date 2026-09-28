@@ -3,6 +3,7 @@ extends Node3D
 @export var chunk_size: float = 200.0
 @export var resolution: int = 50
 @export var height_scale: float = 25.0
+@export var how_much: float = 10
 
 var noise: FastNoiseLite
 var mesh_instance: MeshInstance3D
@@ -13,7 +14,7 @@ var spawn_transform: Transform3D
 func _ready() -> void:
 	noise = FastNoiseLite.new()
 	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
-	noise.frequency = 0.015
+	noise.frequency = how_much
 	
 	mesh_instance = MeshInstance3D.new()
 	add_child(mesh_instance)

@@ -5,6 +5,11 @@ extends RigidBody3D
 @export var pitch_speed: float = 5.0
 @export var roll_speed: float = 5.0
 @export var yaw_speed: float = 3.0
+@onready var label: Label = $CanvasLayer/Label
+
+var gas: float = 10000
+var electric: float = 10000
+var engines_on: bool = false
 
 var needs_respawn: bool = false
 var spawn_transform: Transform3D
@@ -23,17 +28,38 @@ func _physics_process(delta: float) -> void:
 	var up_force = basis.y * thrust_input * max_thrust
 	var forward_force = -basis.z * throttle_input * throttle_power
 	
-	apply_central_force(up_force + forward_force)
+	if engines_on && gas != 0 && electric != 0:
+		apply_central_force(up_force + forward_force)
+		electric -= -abs(thrust_input) + abs(throttle_input) + 1.5 / 100
+		gas -= abs(thrust_input) + abs(throttle_input) + 1.5 / 100
 	
 	var torque = Vector3.ZERO
 	torque.x = pitch_input * pitch_speed
 	torque.z = roll_input * roll_speed
 	torque.y = yaw_input * yaw_speed
 	
-	apply_torque(basis * torque)
+	if engines_on && gas != 0 && electric != 0:
+		apply_torque(basis * torque)
+		
+	if gas == 0 && engines_on == true:
+		electric -= 5
 	
 	if Input.is_action_just_pressed("restart"):
 		needs_respawn = true
+	
+	if Input.is_action_just_pressed("engines"):
+		if engines_on == false:
+			engines_on = true
+		else:
+			engines_on = false
+			
+	if electric >= 10000:
+		electric = 10000
+	if electric <= 0:
+		electric = 0
+	if gas <= 0:
+		gas = 0
+	label.text = "Gas: " +str(gas) + "\nEnegry: " +str(electric)
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("ground"):
@@ -44,4 +70,7 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		state.transform = spawn_transform
 		state.linear_velocity = Vector3.ZERO
 		state.angular_velocity = Vector3.ZERO
+		engines_on = false
+		gas = 10000
+		electric = 10000
 		needs_respawn = false

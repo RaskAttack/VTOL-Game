@@ -21,4 +21,10 @@ shape = SubResource("BoxShape3D_7a2mg")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=705279322]
 transform = Transform3D(1, 0, 0, 0, 0.9692008, 0.24627188, 0, -0.24627188, 0.9692008, 0, 1.2685215, 2.063598)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1954848686]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=298284540]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

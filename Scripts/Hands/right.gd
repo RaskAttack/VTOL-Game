@@ -18,4 +18,5 @@ func _process(delta: float) -> void:
 		anim_player.play(grip_anim)
 	#	is_played_grip = true
 	else:
-		pass
+		anim_player.play_backwards(grip_anim)
+		anim_player.stop()
