@@ -16,6 +16,10 @@ background_mode = 2
 sky = SubResource("Sky_pxkum")
 glow_enabled = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4fkpe"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7ya77"]
+
 [node name="Main" type="Node3D" unique_id=727411318]
 script = ExtResource("1_dub46")
 
@@ -53,3 +57,16 @@ size = Vector3(1, 2.0428467, 1)
 transform = Transform3D(1, 0, 0, 0, 0.012943459, 0.99991626, 0, -0.99991626, 0.012943459, 0, 5.998871, 0)
 light_energy = 16.0
 shadow_enabled = true
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1170662574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2830219, -2.6372113)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D" unique_id=537155972]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1608739933]
+shape = SubResource("BoxShape3D_4fkpe")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=510052575]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=365664227]
+shape = SubResource("WorldBoundaryShape3D_7ya77")
